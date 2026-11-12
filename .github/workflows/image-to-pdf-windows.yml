@@ -1,0 +1,29 @@
+name: Build Windows portable application
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+jobs:
+  build:
+    runs-on: windows-2022
+    defaults:
+      run:
+        working-directory: ImageToPDF
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+          architecture: x64
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m pytest -q
+      - run: python -m PyInstaller --clean --noconfirm ImageToPDF.spec
+      - name: Package portable application
+        shell: pwsh
+        run: Compress-Archive -Path dist/ImageToPDF.exe,README.md,THIRD-PARTY-NOTICES.md -DestinationPath dist/ImageToPDF-Windows-x64.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ImageToPDF-Windows-x64
+          path: |
+            ImageToPDF/dist/ImageToPDF.exe
+            ImageToPDF/dist/ImageToPDF-Windows-x64.zip
