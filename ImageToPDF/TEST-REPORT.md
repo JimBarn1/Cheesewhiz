@@ -28,6 +28,6 @@ The parameterized cases make 15 test executions in total. Test-generated images 
 
 ## Not verified here
 
-No Windows executable was built, run or tested. Windows-specific Explorer drag-and-drop, native file dialogs, PDF viewer launch, file locking, SmartScreen behavior, Unicode/long-path policy and clean-machine portability need the Windows acceptance checks in the README. GitHub Actions was not invoked. Offscreen GUI tests exercise application logic but do not establish Windows desktop integration.
+A Windows x64 executable was built successfully on GitHub Actions (run 43157356076) with Python 3.12.10; all 15 automated tests passed on Windows in 1.87 seconds. The built EXE was not interactively launched or tested on a Windows desktop. Windows-specific Explorer drag-and-drop, native file dialogs, PDF viewer launch, file locking, SmartScreen behavior, Unicode/long-path policy and clean-machine portability need the Windows acceptance checks in the README. The GitHub Actions Windows build succeeded and uploaded artifact 13916402484. Offscreen GUI tests exercise application logic but do not establish Windows desktop integration.
 
 The default page-size limit is 200 inches. Individual decoded image memory still depends on image dimensions. Non-RGB and high bit depth source formats are normalized to 8-bit RGB, and embedded ICC profiles are not preserved as PDF output intents. See the README for quality and format details.

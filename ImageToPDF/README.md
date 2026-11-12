@@ -2,7 +2,7 @@
 
 An offline desktop application for combining a folder of images into a naturally ordered PDF. Designed for Windows 10 and Windows 11, x64.
 
-**Delivery status:** Source, automated tests, build specification, Windows build script and GitHub Actions workflow are included. Development and testing took place on Linux. No Windows `.exe` was produced or tested in this environment. A Linux PyInstaller build was created as a packaging check; it is not a Windows executable. Follow the Windows build steps below to create the portable application.
+**Delivery status:** Source, tests and build files are included. A Windows x64 EXE was successfully built on GitHub Actions using Python 3.12.10, with all 15 automated tests passing on Windows. [Download the Windows build artifact](https://github.com/JimBarn1/Cheesewhiz/actions/runs/43157356076/artifacts/13916402484) (GitHub sign-in may be required). Extract the artifact to find `ImageToPDF.exe` and the portable application ZIP. Interactive acceptance testing on physical Windows 10/11 desktops has not been performed. This source archive does not contain the EXE; the Windows build artifact does.
 
 ## Use the application
 
@@ -54,7 +54,7 @@ PyInstaller must run on Windows to produce a Windows EXE. Renaming the Linux bun
 
 ### Automated Windows build option
 
-The included `.github/workflows/build-windows.yml` runs on `windows-2022`. Upload the project to your own GitHub repository, enable Actions, and run **Build Windows portable application** from the Actions tab. Download the `ImageToPDF-Windows-x64` artifact after a successful run. A version tag such as `v1.0.0` also triggers the workflow. This workflow is supplied but was **not executed** during this delivery.
+The included `.github/workflows/build-windows.yml` runs on `windows-2022`. Upload the project to your own GitHub repository, enable Actions, and run **Build Windows portable application** from the Actions tab. Download the `ImageToPDF-Windows-x64` artifact after a successful run. A version tag such as `v1.0.0` also triggers the workflow. This workflow was successfully executed during this delivery: [successful Windows build](https://github.com/JimBarn1/Cheesewhiz/actions/runs/43157356076).
 
 ### Run from source
 
